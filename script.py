@@ -1,6 +1,4 @@
-import numpy as np
+import requests
 
-msg = "Roll a dice"
-print(msg)
+api_key = '04d30ff35dffb5923aa11546c2059bfc'
 
-print(np.random.randint(1,9))
