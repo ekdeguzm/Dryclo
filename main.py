@@ -55,7 +55,6 @@ if response.status_code == 200:
     # an error fetching the weather data. This is not nessecaily true since the weather data could have
     # been retrieved correctly but just that it it sunny that day. I updated the else clause accordingly.
     try:
-        # fixed this if statement, it was missing the "desc" at the end to check for the words rain or Rain
         if 'rain' in desc or 'Rain' in desc:
             print('Its raining!!! Get your clothes')
 
