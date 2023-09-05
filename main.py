@@ -18,7 +18,7 @@ def send_text():
     # I think i would need another API for this
 
     message = client.messages.create(
-        body="Its raining! Get your clothes",
+        body="It is raining! Get your clothes today",
         from_=keys.twilio_number,
         to=keys.target_number
     )
@@ -42,6 +42,7 @@ print(api_key)
 
 if response.status_code == 200:
     data = response.json()
+    print(data)
     temp = data['main']['temp']
     desc = data['weather'][0]['description']
     print(f'Temperature: {temp} K')
@@ -56,11 +57,14 @@ if response.status_code == 200:
     # been retrieved correctly but just that it it sunny that day. I updated the else clause accordingly.
     try:
         if 'rain' in desc or 'Rain' in desc:
-            print('Its raining!!! Get your clothes')
+            y = 'Its raining!!! Get your clothes'
+            print(y)
 
             # send text method call here
-            send_text()
+            send_text(y)
         else:
-            print('Its not raining today, no worries')
+            x = 'Its not raining today, no worries'
+            print(x)
+            send_text(x)
     except:
         print('Error fetching weather data')
