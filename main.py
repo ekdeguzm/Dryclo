@@ -39,6 +39,7 @@ response = requests.get(url)
 print(api_key)
 
 # call API and get information about the rain, weather, amount of rainfall
+# important information to convey: weather type, weather description, humidity, rain description. 
 
 if response.status_code == 200:
     data = response.json()
