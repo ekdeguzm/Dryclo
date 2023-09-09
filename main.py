@@ -6,6 +6,15 @@ import keys
 Function to send a text message to the user explaining that it is raining
 """
 
+client = Client(keys.account_sid, keys.auth_token)
+
+api_key = '04d30ff35dffb5923aa11546c2059bfc'
+
+city = 'Taipei'
+
+url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
+
+response = requests.get(url)
 
 def send_text():
     # logic to send a text message
@@ -24,17 +33,6 @@ def send_text():
     )
 
     print(message.body)
-
-
-client = Client(keys.account_sid, keys.auth_token)
-
-api_key = '04d30ff35dffb5923aa11546c2059bfc'
-
-city = 'Taipei'
-
-url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
-
-response = requests.get(url)
 
 print(api_key)
 
