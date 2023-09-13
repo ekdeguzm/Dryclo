@@ -40,8 +40,11 @@ response = requests.get(url)
 if response.status_code == 200:
     data = response.json()
     print(data)
+    # important information to convey: weather type, weather description, humidity, rain description. 
+    main = data['weather'][0]['main']
     temp = data['main']['temp']
     desc = data['weather'][0]['description']
+    print(f'{main}')
     print(f'Temperature: {temp} K')
     print(f'Description: {desc}')
 
@@ -52,10 +55,11 @@ if response.status_code == 200:
     # with the previous logic, if the words rain or Rain were not found then it was mentioned that there was
     # an error fetching the weather data. This is not necessarily true since the weather data could have
     # been retrieved correctly but just that it it sunny that day. I updated the else clause accordingly.
+
     try:
             if 'rain' in desc or 'Rain' in desc:
                 print('Its raining!!! Get your clothes')
-                # important information to convey: weather type, weather description, humidity, rain description. 
+
                 # send text method call here
                 send_text()
             else:
