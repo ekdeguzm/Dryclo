@@ -34,8 +34,8 @@ response = requests.get(url)
 
 #     print(message.body)
 
+
 # call API and get information about the rain, weather, amount of rainfall
-# important information to convey: weather type, weather description, humidity, rain description. 
 
 if response.status_code == 200:
     data = response.json()
@@ -50,18 +50,15 @@ if response.status_code == 200:
     # and the logic that you want to execute in case an exception is thrown is put into the except block
 
     # with the previous logic, if the words rain or Rain were not found then it was mentioned that there was
-    # an error fetching the weather data. This is not nessecaily true since the weather data could have
+    # an error fetching the weather data. This is not necessarily true since the weather data could have
     # been retrieved correctly but just that it it sunny that day. I updated the else clause accordingly.
     try:
-        if 'rain' in desc or 'Rain' in desc:
-            y = 'Its raining!!! Get your clothes'
-            print(y)
-
-            # send text method call here
-            send_text(y)
-        else:
-            x = 'Its not raining today, no worries'
-            print(x)
-            send_text(x)
+            if 'rain' in desc or 'Rain' in desc:
+                print('Its raining!!! Get your clothes')
+                # important information to convey: weather type, weather description, humidity, rain description. 
+                # send text method call here
+                send_text()
+            else:
+                print('Its not raining today, no worries')
     except:
         print('Error fetching weather data')
