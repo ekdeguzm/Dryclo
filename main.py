@@ -45,7 +45,7 @@ if response.status_code == 200:
     desc = data['weather'][0]['description']
     temp = data['main']['temp']
     print(f'Weather Type: {main}')
-    print(f'Description: {desc}')
+    print(f'Description: {desc.capitalize()}')
     print(f'Temperature: {temp} K')
 
     # I added this try/except block to your code to catch any errors. Try/except or try/catch blocks are the
