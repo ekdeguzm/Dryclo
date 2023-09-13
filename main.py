@@ -53,9 +53,6 @@ if response.status_code == 200:
     # convert mm to inches
     rain_in = (rain_mm / 25.4)
 
-
-
-
     print(f'Weather Type: {main}')
     print(f'Description: {desc.title()}')
     print(f'Temperature: {round(temp_F)} F')
