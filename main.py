@@ -49,6 +49,10 @@ if response.status_code == 200:
     wind_mps = data['wind']['speed']
     # convert meters/second to miles/hour
     wind_mph = wind_mps * (2.23694)
+    rain_mm = data['rain']['1h']
+    # convert mm to inches
+    rain_in = (rain_mm / 25.4)
+
 
 
 
@@ -57,6 +61,7 @@ if response.status_code == 200:
     print(f'Temperature: {round(temp_F)} F')
     print(f'Humidity: {humidity} %' )
     print(f'Wind: {wind_mph:.1f} mph')
+    print(f'Last Hour\'s Rain: {rain_in} inches')
 
     # I added this try/except block to your code to catch any errors. Try/except or try/catch blocks are the
     # standard way to catch errors in programming. The logic that you want to execute is in the try block,
@@ -73,6 +78,6 @@ if response.status_code == 200:
                 # send text method call here
                 send_text()
             else:
-                print('Its not raining today, no worries')
+                print('It\'s not raining today, no worries')
     except:
         print('Error fetching weather data')
