@@ -46,11 +46,17 @@ if response.status_code == 200:
     temp_K = data['main']['temp']
     temp_F = (9/5) * (temp_K - 273) + 32 
     humidity = data['main']['humidity']
+    wind_mps = data['wind']['speed']
+    # convert meters/second to miles/hour
+    wind_mph = wind_mps * (2.23694)
+
+
 
     print(f'Weather Type: {main}')
     print(f'Description: {desc.title()}')
-    print(f'Temperature: {temp_F} F')
+    print(f'Temperature: {round(temp_F)} F')
     print(f'Humidity: {humidity} %' )
+    print(f'Wind: {wind_mph:.1f} mph')
 
     # I added this try/except block to your code to catch any errors. Try/except or try/catch blocks are the
     # standard way to catch errors in programming. The logic that you want to execute is in the try block,
