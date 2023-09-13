@@ -43,10 +43,12 @@ if response.status_code == 200:
     # important information to convey: weather type, weather description, humidity, rain description. 
     main = data['weather'][0]['main']
     desc = data['weather'][0]['description']
-    temp = data['main']['temp']
+    temp_K = data['main']['temp']
+    temp_F = (9/5) * (temp_K - 273) + 32 
+
     print(f'Weather Type: {main}')
     print(f'Description: {desc.capitalize()}')
-    print(f'Temperature: {temp} K')
+    print(f'Temperature: {temp_F} F')
 
     # I added this try/except block to your code to catch any errors. Try/except or try/catch blocks are the
     # standard way to catch errors in programming. The logic that you want to execute is in the try block,
