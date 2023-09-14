@@ -50,13 +50,6 @@ if response.status_code == 200:
     # convert meters/second to miles/hour
     wind_mph = wind_mps * (2.23694)
 
-
-    print(f'Weather Type: {main}')
-    print(f'Description: {desc.title()}')
-    print(f'Temperature: {round(temp_F)} F')
-    print(f'Humidity: {humidity} %' )
-    print(f'Wind: {wind_mph:.1f} mph')
-
     # I added this try/except block to your code to catch any errors. Try/except or try/catch blocks are the
     # standard way to catch errors in programming. The logic that you want to execute is in the try block,
     # and the logic that you want to execute in case an exception is thrown is put into the except block
@@ -70,7 +63,15 @@ if response.status_code == 200:
                 # convert mm to inches
                 rain_in = (rain_mm / 25.4)
                 print('Its raining!!! Get your clothes')
-                print(f'Last Hour\'s Rain: {rain_in} inches')
+                text_content = f'''
+                Weather Type: {main}
+                Description: {desc.title()}
+                Temperature: {round(temp_F)} F
+                Humidity: {humidity} %
+                Wind: {wind_mph:.1f} mph
+                Last Hour's Rain: {rain_in} inches
+                '''
+                print(text_content)
                 # send text method call here
                 #send_text()
             else:
