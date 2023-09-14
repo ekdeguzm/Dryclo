@@ -16,7 +16,7 @@ url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
 
 response = requests.get(url)
 
-def send_text(x):
+def send_text(text):
     # logic to send a text message
 
     # I moved the logic that you had into this function definition, functions are
@@ -27,9 +27,9 @@ def send_text(x):
     # I think i would need another API for this
 
     message = client.messages.create(
-        body="It is raining! Get your clothes today",
-        from_=keys.twilio_number,
-        to=keys.target_number
+        body= '\n\nIt is going to rain today!\n' + text,
+        from_= keys.twilio_number,
+        to= keys.target_number
     )
 
     print(message.body)
