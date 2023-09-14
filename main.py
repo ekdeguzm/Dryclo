@@ -27,7 +27,10 @@ def send_text(text):
     # I think i would need another API for this
 
     message = client.messages.create(
-        body= '\n\nIt is going to rain today!\n\nIf you\'re hanging clothes outside,\ntake them down!\n\n' + text,
+        body= ' ' + '\n\nIt is going to rain today!'
+        '\n\nIf you\'re hanging clothes outside, please take them inside.'
+        '\n\nIf not, you can disregard this message\n\n' 
+        + text,
         from_= keys.twilio_number,
         to= keys.target_number
     )
