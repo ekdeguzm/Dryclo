@@ -27,7 +27,7 @@ def send_text(text):
     # I think i would need another API for this
 
     message = client.messages.create(
-        body= '\n\nIt is going to rain today!\n' + text,
+        body= '\n\nIt is going to rain today!\n\nIf you\'re hanging clothes outside,\ntake them down!\n\n' + text,
         from_= keys.twilio_number,
         to= keys.target_number
     )
@@ -69,10 +69,11 @@ Description: {desc.title()}
 Temperature: {round(temp_F)} F
 Humidity: {humidity} %
 Wind: {wind_mph:.1f} mph
+Last Hour's Rain: {rain_in} inches
 '''
                 print(text_content)
                 # send text method call here
-                #send_text()
+                send_text(text_content)
             else:
                 print('It\'s not raining today, no worries')
                 text_content = f'''
@@ -82,11 +83,7 @@ Temperature: {round(temp_F)} F
 Humidity: {humidity} %
 Wind: {wind_mph:.1f} mph
 '''
-                    
                 print(text_content)
                 send_text(text_content)
     except:
         print('Error fetching weather data')
-
-# Today is not raining in Taipei. Currently seeing if i can pipe the data to send_text()
-# Last Hour's Rain: {rain_in} inches
