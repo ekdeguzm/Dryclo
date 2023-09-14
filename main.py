@@ -49,16 +49,13 @@ if response.status_code == 200:
     wind_mps = data['wind']['speed']
     # convert meters/second to miles/hour
     wind_mph = wind_mps * (2.23694)
-    rain_mm = data['rain']['1h']
-    # convert mm to inches
-    rain_in = (rain_mm / 25.4)
+
 
     print(f'Weather Type: {main}')
     print(f'Description: {desc.title()}')
     print(f'Temperature: {round(temp_F)} F')
     print(f'Humidity: {humidity} %' )
     print(f'Wind: {wind_mph:.1f} mph')
-    print(f'Last Hour\'s Rain: {rain_in} inches')
 
     # I added this try/except block to your code to catch any errors. Try/except or try/catch blocks are the
     # standard way to catch errors in programming. The logic that you want to execute is in the try block,
@@ -67,13 +64,15 @@ if response.status_code == 200:
     # with the previous logic, if the words rain or Rain were not found then it was mentioned that there was
     # an error fetching the weather data. This is not necessarily true since the weather data could have
     # been retrieved correctly but just that it it sunny that day. I updated the else clause accordingly.
-
     try:
             if 'rain' in desc or 'Rain' in desc:
+                rain_mm = data['rain']['1h']
+                # convert mm to inches
+                rain_in = (rain_mm / 25.4)
                 print('Its raining!!! Get your clothes')
-
+                print(f'Last Hour\'s Rain: {rain_in} inches')
                 # send text method call here
-                send_text()
+                #send_text()
             else:
                 print('It\'s not raining today, no worries')
     except:
