@@ -64,24 +64,25 @@ if response.status_code == 200:
                 rain_in = (rain_mm / 25.4)
                 print('Its raining!!! Get your clothes')
                 text_content = f'''
-                    Weather Type: {main}
-                    Description: {desc.title()}
-                    Temperature: {round(temp_F)} F
-                    Humidity: {humidity} %
-                    Wind: {wind_mph:.1f} mph
-                    '''
+Weather Type: {main}
+Description: {desc.title()}
+Temperature: {round(temp_F)} F
+Humidity: {humidity} %
+Wind: {wind_mph:.1f} mph
+'''
                 print(text_content)
                 # send text method call here
                 #send_text()
             else:
                 print('It\'s not raining today, no worries')
                 text_content = f'''
-                    Weather Type: {main}
-                    Description: {desc.title()}
-                    Temperature: {round(temp_F)} F
-                    Humidity: {humidity} %
-                    Wind: {wind_mph:.1f} mph
-                    '''
+Weather Type: {main}
+Description: {desc.title()}
+Temperature: {round(temp_F)} F
+Humidity: {humidity} %
+Wind: {wind_mph:.1f} mph
+'''
+                    
                 print(text_content)
                 send_text(text_content)
     except:
