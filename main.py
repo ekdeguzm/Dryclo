@@ -16,23 +16,23 @@ url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
 
 response = requests.get(url)
 
-# def send_text():
-#     # logic to send a text message
+def send_text(x):
+    # logic to send a text message
 
-#     # I moved the logic that you had into this function definition, functions are
-#     # a good way to organize pieces of functionality that you might want to reuse, and help your
-#     # code to look cleaner, for more info see here https://en.wikipedia.org/wiki/Function_(computer_programming)
+    # I moved the logic that you had into this function definition, functions are
+    # a good way to organize pieces of functionality that you might want to reuse, and help your
+    # code to look cleaner, for more info see here https://en.wikipedia.org/wiki/Function_(computer_programming)
 
-#     # if there is rain or a certain amount of rainfall send an email or text to me somehow?
-#     # I think i would need another API for this
+    # if there is rain or a certain amount of rainfall send an email or text to me somehow?
+    # I think i would need another API for this
 
-#     message = client.messages.create(
-#         body="It is raining! Get your clothes today",
-#         from_=keys.twilio_number,
-#         to=keys.target_number
-#     )
+    message = client.messages.create(
+        body="It is raining! Get your clothes today",
+        from_=keys.twilio_number,
+        to=keys.target_number
+    )
 
-#     print(message.body)
+    print(message.body)
 
 
 # call API and get information about the rain, weather, amount of rainfall
@@ -64,17 +64,28 @@ if response.status_code == 200:
                 rain_in = (rain_mm / 25.4)
                 print('Its raining!!! Get your clothes')
                 text_content = f'''
-                Weather Type: {main}
-                Description: {desc.title()}
-                Temperature: {round(temp_F)} F
-                Humidity: {humidity} %
-                Wind: {wind_mph:.1f} mph
-                Last Hour's Rain: {rain_in} inches
-                '''
+                    Weather Type: {main}
+                    Description: {desc.title()}
+                    Temperature: {round(temp_F)} F
+                    Humidity: {humidity} %
+                    Wind: {wind_mph:.1f} mph
+                    '''
                 print(text_content)
                 # send text method call here
                 #send_text()
             else:
                 print('It\'s not raining today, no worries')
+                text_content = f'''
+                    Weather Type: {main}
+                    Description: {desc.title()}
+                    Temperature: {round(temp_F)} F
+                    Humidity: {humidity} %
+                    Wind: {wind_mph:.1f} mph
+                    '''
+                print(text_content)
+                send_text(text_content)
     except:
         print('Error fetching weather data')
+
+# Today is not raining in Taipei. Currently seeing if i can pipe the data to send_text()
+# Last Hour's Rain: {rain_in} inches
