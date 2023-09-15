@@ -38,7 +38,7 @@ def send_text(text):
     print(message.body)
 
 
-call API and get information about the rain, weather, amount of rainfall
+# call API and get information about the rain, weather, amount of rainfall
 
 if response.status_code == 200:
     data = response.json()
