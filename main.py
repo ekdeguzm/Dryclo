@@ -6,14 +6,15 @@ import keys
 Function to send a text message to the user explaining that it is raining
 """
 
+# set up twilio client
 client = Client(keys.account_sid, keys.auth_token)
 
+# define API parameters
 api_key = '04d30ff35dffb5923aa11546c2059bfc'
-
 city = 'Taipei'
-
 url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
 
+# fetch weather data
 response = requests.get(url)
 
 def send_text(text):
@@ -63,34 +64,34 @@ if response.status_code == 200:
                 # convert mm to inches
                 rain_in = (rain_mm / 25.4)
                 text_content = f'''
-\n\n
-It is going to rain today!
-\n\n
-If you are hanging clothes outside, please take them inside.
-\n\n
-If not, you can disregard this message.
-\n     
-Weather Type: {main}
-Description: {desc.title()}
-Temperature: {round(temp_F)} F
-Humidity: {humidity} %
-Wind: {wind_mph:.1f} mph
-Last Hour's Rain: {rain_in:.1f} inches
-'''
+                \n\n
+                It is going to rain today!
+                \n\n
+                If you are hanging clothes outside, please take them inside.
+                \n\n
+                If not, you can disregard this message.
+                \n     
+                Weather Type: {main}
+                Description: {desc.title()}
+                Temperature: {round(temp_F)} F
+                Humidity: {humidity} %
+                Wind: {wind_mph:.1f} mph
+                Last Hour's Rain: {rain_in:.1f} inches
+                '''
                 print(text_content)
                 # send text method call here
                 send_text(text_content)
             else:
                 print('It\'s not raining today, you can leave your clothes outside.')
                 text_content = f'''
-It\'s not raining today, you can leave your clothes outside.
-\n\n            
-Weather Type: {main}
-Description: {desc.title()}
-Temperature: {round(temp_F)} F
-Humidity: {humidity} %
-Wind: {wind_mph:.1f} mph
-'''
+                It\'s not raining today, you can leave your clothes outside.
+                \n\n            
+                Weather Type: {main}
+                Description: {desc.title()}
+                Temperature: {round(temp_F)} F
+                Humidity: {humidity} %
+                Wind: {wind_mph:.1f} mph
+                '''
                 print(text_content)
                 send_text(text_content)
     except:
