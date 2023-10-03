@@ -37,7 +37,6 @@ def send_text(text):
 
 
 # call API and get information about the rain, weather, amount of rainfall
-
 if response.status_code == 200:
     data = response.json()
     print(data)
@@ -64,19 +63,19 @@ if response.status_code == 200:
                 # convert mm to inches
                 rain_in = (rain_mm / 25.4)
                 text_content = f'''
-                \n\n
-                It is going to rain today!
-                \n\n
-                If you are hanging clothes outside, please take them inside.
-                \n\n
-                If not, you can disregard this message.
-                \n     
-                Weather Type: {main}
-                Description: {desc.title()}
-                Temperature: {round(temp_F)} F
-                Humidity: {humidity} %
-                Wind: {wind_mph:.1f} mph
-                Last Hour's Rain: {rain_in:.1f} inches
+\n\n
+It is going to rain today!
+\n\n
+If you are hanging clothes outside, please take them inside.
+\n\n
+If not, you can disregard this message.
+\n     
+Weather Type: {main}
+Description: {desc.title()}
+Temperature: {round(temp_F)} F
+Humidity: {humidity} %
+Wind: {wind_mph:.1f} mph
+Last Hour's Rain: {rain_in:.1f} inches
                 '''
                 print(text_content)
                 # send text method call here
@@ -84,13 +83,13 @@ if response.status_code == 200:
             else:
                 print('It\'s not raining today, you can leave your clothes outside.')
                 text_content = f'''
-                It\'s not raining today, you can leave your clothes outside.
-                \n\n            
-                Weather Type: {main}
-                Description: {desc.title()}
-                Temperature: {round(temp_F)} F
-                Humidity: {humidity} %
-                Wind: {wind_mph:.1f} mph
+It\'s not raining today, you can leave your clothes outside.
+\n\n            
+Weather Type: {main}
+Description: {desc.title()}
+Temperature: {round(temp_F)} F
+Humidity: {humidity} %
+Wind: {wind_mph:.1f} mph
                 '''
                 print(text_content)
                 send_text(text_content)
