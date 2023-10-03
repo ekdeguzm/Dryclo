@@ -41,7 +41,7 @@ def send_text(text):
         modified_message = message[hyphen_position + 1:].strip()
     else:
         # If the hyphen is not found, keep the original message
-        modified_message = original_message
+        modified_message = message
 
     print(modified_message)
     print(message.body)
