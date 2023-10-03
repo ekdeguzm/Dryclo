@@ -16,26 +16,26 @@ url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
 
 response = requests.get(url)
 
-def send_text(text):
-    # logic to send a text message
+# def send_text(text):
+#     # logic to send a text message
 
-    # I moved the logic that you had into this function definition, functions are
-    # a good way to organize pieces of functionality that you might want to reuse, and help your
-    # code to look cleaner, for more info see here https://en.wikipedia.org/wiki/Function_(computer_programming)
+#     # I moved the logic that you had into this function definition, functions are
+#     # a good way to organize pieces of functionality that you might want to reuse, and help your
+#     # code to look cleaner, for more info see here https://en.wikipedia.org/wiki/Function_(computer_programming)
 
-    # if there is rain or a certain amount of rainfall send an email or text to me somehow?
-    # I think i would need another API for this
+#     # if there is rain or a certain amount of rainfall send an email or text to me somehow?
+#     # I think i would need another API for this
 
-    message = client.messages.create(
-        body= '-' + '\n\nIt is going to rain today!'
-        '\n\nIf you are hanging clothes outside, please take them inside.'
-        '\n\nIf not, you can disregard this message.\n' 
-        + text,
-        from_= keys.twilio_number,
-        to= keys.target_number
-    )
+#     message = client.messages.create(
+#         body= '-' + '\n\nIt is going to rain today!'
+#         '\n\nIf you are hanging clothes outside, please take them inside.'
+#         '\n\nIf not, you can disregard this message.\n' 
+#         + text,
+#         from_= keys.twilio_number,
+#         to= keys.target_number
+#     )
 
-    print(message.body)
+#     print(message.body)
 
 
 # call API and get information about the rain, weather, amount of rainfall
@@ -72,14 +72,16 @@ Description: {desc.title()}
 Temperature: {round(temp_F)} F
 Humidity: {humidity} %
 Wind: {wind_mph:.1f} mph
-Last Hour's Rain: {rain_in} inches
+Last Hour's Rain: {rain_in:.1f} inches
 '''
                 print(text_content)
                 # send text method call here
                 send_text(text_content)
             else:
-                print('It\'s not raining today, no worries')
+                print('It\'s not raining today, you can leave your clothes outside.')
                 text_content = f'''
+It\'s not raining today, you can leave your clothes outside.
+\n\n            
 Weather Type: {main}
 Description: {desc.title()}
 Temperature: {round(temp_F)} F
