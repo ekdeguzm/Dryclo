@@ -86,7 +86,7 @@ Description: {desc.title()}
 Temperature: {round(temp_F)} F
 Humidity: {humidity} %
 Wind: {wind_mph:.1f} mph
-Last Hour's Rain: {rain_in:.1f} inches
+Past Hour's Rain: {rain_in:.1f} inches
                 '''
                 # send text method call here
                 send_text(text_content)
