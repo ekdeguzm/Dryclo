@@ -16,26 +16,23 @@ url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
 
 response = requests.get(url)
 
-# def send_text(text):
-#     # logic to send a text message
+def send_text(text):
+    # logic to send a text message
 
-#     # I moved the logic that you had into this function definition, functions are
-#     # a good way to organize pieces of functionality that you might want to reuse, and help your
-#     # code to look cleaner, for more info see here https://en.wikipedia.org/wiki/Function_(computer_programming)
+    # I moved the logic that you had into this function definition, functions are
+    # a good way to organize pieces of functionality that you might want to reuse, and help your
+    # code to look cleaner, for more info see here https://en.wikipedia.org/wiki/Function_(computer_programming)
 
-#     # if there is rain or a certain amount of rainfall send an email or text to me somehow?
-#     # I think i would need another API for this
+    # if there is rain or a certain amount of rainfall send an email or text to me somehow?
+    # I think i would need another API for this
 
-#     message = client.messages.create(
-#         body= '-' + '\n\nIt is going to rain today!'
-#         '\n\nIf you are hanging clothes outside, please take them inside.'
-#         '\n\nIf not, you can disregard this message.\n' 
-#         + text,
-#         from_= keys.twilio_number,
-#         to= keys.target_number
-#     )
+    message = client.messages.create(
+        body= '-' + text,
+        from_= keys.twilio_number,
+        to= keys.target_number
+    )
 
-#     print(message.body)
+    print(message.body)
 
 
 # call API and get information about the rain, weather, amount of rainfall
@@ -65,8 +62,14 @@ if response.status_code == 200:
                 rain_mm = data['rain']['1h']
                 # convert mm to inches
                 rain_in = (rain_mm / 25.4)
-                print('Its raining!!! Get your clothes')
                 text_content = f'''
+\n\n
+It is going to rain today!
+\n\n
+If you are hanging clothes outside, please take them inside.
+\n\n
+If not, you can disregard this message.
+\n     
 Weather Type: {main}
 Description: {desc.title()}
 Temperature: {round(temp_F)} F
