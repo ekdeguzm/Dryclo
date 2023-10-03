@@ -77,21 +77,19 @@ Humidity: {humidity} %
 Wind: {wind_mph:.1f} mph
 Last Hour's Rain: {rain_in:.1f} inches
                 '''
-                print(text_content)
                 # send text method call here
                 send_text(text_content)
             else:
-                print('It\'s not raining today, you can leave your clothes outside.')
                 text_content = f'''
+\n
 It\'s not raining today, you can leave your clothes outside.
-\n\n            
+\n            
 Weather Type: {main}
 Description: {desc.title()}
 Temperature: {round(temp_F)} F
 Humidity: {humidity} %
 Wind: {wind_mph:.1f} mph
                 '''
-                print(text_content)
                 send_text(text_content)
     except:
         print('Error fetching weather data')
