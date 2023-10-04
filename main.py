@@ -34,14 +34,14 @@ def send_text(text):
     )
 
     # Find the position of the hyphen (-) in the string
-    hyphen_position = message.find('-')
+    hyphen_position = message.body.find('-')
 
     if hyphen_position != -1:
         # Remove the prefix and any leading/trailing spaces
-        modified_message = message[hyphen_position + 1:].strip()
+        modified_message = message.body[hyphen_position + 1:].strip()
     else:
         # If the hyphen is not found, keep the original message
-        modified_message = message
+        modified_message = message.body
 
     print(modified_message)
     print(message.body)
@@ -74,7 +74,7 @@ if response.status_code == 200:
                 # convert mm to inches
                 rain_in = (rain_mm / 25.4)
                 text_content = f'''
-\n\n
+\n
 It is going to rain today!
 \n\n
 If you are hanging clothes outside, please take them inside.
