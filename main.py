@@ -17,16 +17,8 @@ url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
 # fetch weather data
 response = requests.get(url)
 
+# create function to send text
 def send_text(text):
-    # logic to send a text message
-
-    # I moved the logic that you had into this function definition, functions are
-    # a good way to organize pieces of functionality that you might want to reuse, and help your
-    # code to look cleaner, for more info see here https://en.wikipedia.org/wiki/Function_(computer_programming)
-
-    # if there is rain or a certain amount of rainfall send an email or text to me somehow?
-    # I think i would need another API for this
-
     message = client.messages.create(
         body= '-' + text,
         from_= keys.twilio_number,
