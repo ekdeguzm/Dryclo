@@ -55,7 +55,7 @@ if response.status_code == 200:
                 # convert mm to inches
                 rain_in = (rain_mm / 25.4)
                 text_content = f'''
-\n
+\n\n
 It is going to rain today!
 \n\n
 If you are hanging clothes outside, please take them inside.
@@ -73,9 +73,9 @@ Past Hour's Rain: {rain_in:.1f} inches
                 send_text(text_content)
             else:
                 text_content = f'''
-\n
+\n\n
 It\'s not raining today, you can leave your clothes outside.
-\n            
+\n\n            
 Weather Type: {main}
 Description: {desc.title()}
 Temperature: {round(temp_F)} F
