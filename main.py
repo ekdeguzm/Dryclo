@@ -25,17 +25,6 @@ def send_text(text):
         to= keys.target_number
     )
 
-    # Find the position of the hyphen (-) in the string
-    hyphen_position = message.body.find('-')
-
-    if hyphen_position != -1:
-        # Remove the prefix and any leading/trailing spaces
-        modified_message = message.body[hyphen_position + 1:].strip()
-    else:
-        # If the hyphen is not found, keep the original message
-        modified_message = message.body
-
-    print(modified_message)
     print(message.body)
 
 
