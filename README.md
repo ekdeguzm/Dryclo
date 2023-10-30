@@ -1,7 +1,7 @@
 # Dry Clothes Bot
 
 <div align="center">
-    <img alt="Screenshot" src="files/dry_clothes_bot_3.png" width="800px" height="600px">
+    <img alt="Screenshot" src="files/dry_clothes_bot_3.png" width="600px" height="450px">
 </div>
 
 
