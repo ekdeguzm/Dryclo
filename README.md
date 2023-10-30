@@ -4,6 +4,38 @@
     <img alt="Screenshot" src="files/dry_clothes_bot_3.png" width="800px" height="600px">
 </div>
 
-My problem: clothes are hanging outside and weather changes quickly from sunny to rainy. I forget to check the weather in advance sometimes so I have wet clothes when I get home. The idea is to create a bot/app that will check the weather in Taipei and send me an email or text (not sure which one yet) if there is rain or a certain amount of rainfall (inches). The message would say like "Rainy day Take hanging clothes down! with a breakdown of information about the weather for the day.
 
 
+### Intro
+
+## Problem
+
+
+This Python program leverages the OpenWeatherMap API to retrieve weather information for Taipei and then sends a text message using the Twilio service to notify the user about the weather conditions, with a specific focus on rain. It extracts key weather details, including weather type, description, temperature, humidity, and wind speed. If rain is detected, it informs the user, advising actions like bringing in clothes if necessary. If no rain is indicated, it sends a message stating that it's not raining and provides general weather information. The program is designed to assist users in making weather-informed decisions for their day in Taipei.
+
+
+## Table of Contents
+- [Usage](#Usage)
+- [License](#License)
+
+## Usage
+To automate the execution of the weather notification program and send text messages every day, I used the crontab job scheduler in a Bash script following these steps:
+
+Use the crontab command to edit crontab file. Open crontab configuration by running:
+
+```bash
+crontab -e
+```
+
+To run Bash script daily, I added the following line to my crontab file. This example schedules the job to run at 8:00 AM every day. 
+
+```bash
+0 8 * * * /path/to/dry_clothes_bot/main.py
+```
+
+## License
+My Dry Clothes Bot project is licensed under the MIT Licence Copyright (c) 2021.
+
+See the [LICENSE](https://github.com/ekdeguzm/dry_clothes_bot/LICENSE) for information on the history of this software, terms & conditions for usage, and a DISCLAIMER OF ALL WARRANTIES.
+
+All trademarks referenced herein are property of their respective holders.
