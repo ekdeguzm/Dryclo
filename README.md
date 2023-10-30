@@ -8,10 +8,10 @@
 
 ## Intro
 
-# Problem
+### Problem
 I lived in Taiwan for a year to learn Chinese. Due to not having access to a drying machine, hanging my clothes outside a part of my routine. However, the region's humid climate and frequent rain showers occasionally left me with the unintended inconvenience of damp clothing.
 
-# Solution
+### Solution
 This program leverages the OpenWeatherMap API to retrieve weather information for Taipei and then sends a text message using the Twilio service to notify the user about the weather conditions, with a specific focus on rain. It extracts key weather details, including weather type, description, temperature, humidity, and wind speed. If rain is detected, it informs the user, advising actions like bringing in clothes if necessary. If no rain is indicated, it sends a message stating that it's not raining and provides general weather information. The program is designed to assist users in making weather-informed decisions for their day in Taipei.
 
 ## Table of Contents
