@@ -9,7 +9,7 @@
 ### Intro
 
 ## Problem
-I lived in Taiwan for a year to learn Chinese. I did not have a dryer so hang drying my clothes outside was how I dried my clothes. Rains were frequent and not being aware of daily weather patterns led to wet clothes.
+I lived in Taiwan for a year to learn Chinese. Due to not having access to a drying machine, hanging my clothes outside a part of my routine. However, due to living in a more humid climate, rains were frequent and left me with wet clothes.
 
 
 ## Solution
