@@ -9,8 +9,7 @@
 ### Intro
 
 ## Problem
-I lived in Taiwan for a year to learn Chinese. Due to not having access to a drying machine, hanging my clothes outside a part of my routine. However, due to living in a more humid climate, rains were frequent and left me with wet clothes.
-
+I lived in Taiwan for a year to learn Chinese. Due to not having access to a drying machine, hanging my clothes outside a part of my routine. However, the region's humid climate and frequent rain showers occasionally left me with the unintended inconvenience of damp clothing.
 
 ## Solution
 This program leverages the OpenWeatherMap API to retrieve weather information for Taipei and then sends a text message using the Twilio service to notify the user about the weather conditions, with a specific focus on rain. It extracts key weather details, including weather type, description, temperature, humidity, and wind speed. If rain is detected, it informs the user, advising actions like bringing in clothes if necessary. If no rain is indicated, it sends a message stating that it's not raining and provides general weather information. The program is designed to assist users in making weather-informed decisions for their day in Taipei.
@@ -33,7 +32,6 @@ To run Bash script daily, I added the following line to my crontab file. This ex
 ```bash
 0 8 * * * /path/to/dry_clothes_bot/main.py
 ```
-
 ## License
 My Dry Clothes Bot project is licensed under the MIT Licence Copyright (c) 2023.
 
