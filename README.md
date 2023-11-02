@@ -1,4 +1,4 @@
-# Dry Clothes Bot
+# Dryclo
 
 <div align="center">
     <img alt="Screenshot" src="files/dry_clothes_bot_3.png" width="600px" height="450px">
@@ -33,7 +33,7 @@ To run Bash script daily, I added the following line to my crontab file. This ex
 0 8 * * * /path/to/dry_clothes_bot/main.py
 ```
 ## License
-My Dry Clothes Bot project is licensed under the MIT License Copyright (c) 2023.
+My Dryclo project is licensed under the MIT License Copyright (c) 2023.
 
 See the [LICENSE](https://github.com/ekdeguzm/dry_clothes_bot/LICENSE) for information on the history of this software, terms & conditions for usage, and a DISCLAIMER OF ALL WARRANTIES.
 
