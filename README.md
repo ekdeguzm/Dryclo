@@ -12,7 +12,7 @@
 I lived in Taiwan for year to learn Chinese. Due to not having access to a drying machine, hanging my clothes outside a part of my routine. However, the region's humid climate and frequent rain showers occasionally left me with damp clothing.
 
 ### Solution
-Dryclo leverages the OpenWeatherMap API to retrieve weather information and then sends a text message using the Twilio service to notify the user about the weather conditions, with a specific focus on rain. It extracts key weather details, including weather type, description, temperature, humidity, wind speed, and rain depth. If rain is detected, it informs the user, advising actions like bringing in clothes if necessary. If no rain is indicated, it sends a message stating that it's not raining and provides general weather information. The program is designed to assist users in making weather-informed decisions for their day in Taipei.
+Dryclo leverages the OpenWeatherMap API to retrieve weather information and then sends a text message using the Twilio service to notify the user about the weather conditions, with a specific focus on rain. It extracts key weather details, including weather type, description, temperature, humidity, wind speed, and rain depth. If rain is detected, it informs the user, advising actions like bringing in clothes if necessary. If no rain is indicated, it sends a message stating that it's not raining and provides general weather information. The program is designed to assist users in making weather-informed decisions for their day.
 
 ## Table of Contents
 - [Usage](#Usage)
